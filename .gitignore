@@ -1,0 +1,15 @@
+# Project exclude paths
+/out/
+*.iml
+.idea/
+target/
+*.zip
+*.exe
+.logs/
+bin/
+obj/
+.vs/
+packages/
+test-output/
+maze/
+cd
