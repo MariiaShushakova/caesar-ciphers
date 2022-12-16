@@ -1,57 +1,47 @@
 package com.javarush;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
-import static com.javarush.Symbols.*;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Type line:");
-        String line = sc.nextLine();
+        System.out.println("Type directory, from ('text.txt'):");
+        String pathFrom = sc.nextLine();
+        System.out.println("Type directory, to ('text2.txt'):");
+        String pathTo = sc.nextLine();
 
-        System.out.println("Type shift key (int):");
+        System.out.println("Type shift-key (int):");
         int shift = sc.nextInt();
 
-        String encrypted = encrypt(line, shift);
-        System.out.println(encrypted);
-        System.out.println(decrypt(encrypted, shift));
+        workWithFiles(pathFrom, pathTo, shift);
     }
 
-    public static String  encrypt(String line, int shift){
-        //System.out.println("Initial line: " + line);
-        StringBuilder initialStr = new StringBuilder(line.toLowerCase()); //TODO: need to think
-        StringBuilder encryptedStr = new StringBuilder();
-        
-        for (int i = 0; i < initialStr.length(); i++) {
-            var ch  = initialStr.charAt(i);
+    public static void workWithFiles(String pathFrom, String pathTo, int shift) {
+        StringBuilder testStr = new StringBuilder();
 
-            if(STR_CRYP.indexOf(ch) >= 0) { //check existence in our alphabet
-                encryptedStr.append(STR_CRYP.charAt((STR_CRYP.indexOf(ch) + shift) % STR_CRYP.length()));
-            }else{
-                encryptedStr.append(ch);
+        try (FileReader fileReader = new FileReader(pathFrom);
+             FileWriter fileWriter = new FileWriter(pathTo)) {
+
+            int i;
+            while ((i = fileReader.read()) != -1) {
+                testStr.append((char)i);
             }
+
+            String encryptedStr = Caesar.encrypt(String.valueOf(testStr), shift);
+            String decryptedStr = Caesar.decrypt(String.valueOf(encryptedStr), shift);
+
+            fileWriter.write(encryptedStr);
+            fileWriter.write("\n" + decryptedStr);
+            System.out.println("Result: " + "\n" + encryptedStr + "\n" + decryptedStr); //log
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return String.valueOf(encryptedStr);
     }
 
-    public static String decrypt(String line, int shift){
-        //System.out.println("Initial line: " + line);
-        StringBuilder initialStr = new StringBuilder(line.toLowerCase()); //TODO: need to think
-        StringBuilder decryptedStr = new StringBuilder();
-
-        for (int i = 0; i < initialStr.length(); i++) {
-            var ch  = initialStr.charAt(i);
-
-            if(STR_CRYP.indexOf(ch) >= 0) {
-
-                int indexDecr = (STR_CRYP.indexOf(ch) + STR_CRYP.length() - shift % STR_CRYP.length()) % STR_CRYP.length();
-                decryptedStr.append(STR_CRYP.charAt(indexDecr));
-            }else{
-                decryptedStr.append(ch);
-            }
-        }
-        return String.valueOf(decryptedStr);
-    }
 }
