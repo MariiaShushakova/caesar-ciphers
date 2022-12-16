@@ -1,6 +1,6 @@
 package com.javarush;
 
-public class Symbols {
+public class Alphabet {
 
     public  static final String STR_CRYP = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя.,:-!? ";
     public  static final String STR_SYMBOLS = ".,:-!? ";

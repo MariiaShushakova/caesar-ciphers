@@ -37,11 +37,11 @@ public class Main {
 
             fileWriter.write(encryptedStr);
             fileWriter.write("\n" + decryptedStr);
-            System.out.println("Result: " + "\n" + encryptedStr + "\n" + decryptedStr); //log
+            //small log
+            System.out.println("\n"+ "Result: " + "\n" + encryptedStr + "\n" + decryptedStr);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 }

@@ -1,6 +1,6 @@
 package com.javarush;
 
-import static com.javarush.Symbols.STR_CRYP;
+import static com.javarush.Alphabet.STR_CRYP;
 
 public final class Caesar {
 

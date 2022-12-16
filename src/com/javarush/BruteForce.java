@@ -1,0 +1,40 @@
+package com.javarush;
+
+import java.nio.charset.StandardCharsets;
+import java.util.regex.Pattern;
+
+public final class BruteForce {
+    private static final Pattern PATTERN_SYM = Pattern.compile ("[,.!@#$%&*()_+=|<>?{}\\[\\]~-]");
+    private static final Pattern PATTERN_4_CONSONANTS = Pattern.compile ("[a-z&&[^aeiuo]]{4}");
+    private static final Pattern PATTERN_3_VOWELS = Pattern.compile ("[a-z&&[^aeiuo]]{4}");
+
+    public static String bruteForceDecrypt(String line){
+        String torturedStr = "";
+
+        for (int i = 1; i <= Alphabet.STR_CRYP.length(); i++) {
+            torturedStr = Caesar.decrypt(line, i);
+            //System.out.println(torturedStr);
+
+            if(bruteForceLogic(torturedStr)) break;
+        }
+        return torturedStr;
+    }
+
+    private static boolean bruteForceLogic(String decryptedLine){
+        String[] splitStr = decryptedLine.trim().split("\\s+");
+
+        for (String word:splitStr) {
+            if (word.length() > 15) return false;
+            else if (PATTERN_SYM.matcher(word.substring(0, word.length()-1)).find()) return false;
+            else if (PATTERN_4_CONSONANTS.matcher(word).find())  return false; //TODO
+            else if (PATTERN_4_CONSONANTS.matcher(word).find())  return false; //TODO
+            else break;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String word = ",:ъуц!рьъ:ъээрърцф.:о";
+        System.out.println(bruteForceDecrypt(word));
+    }
+}
