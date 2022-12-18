@@ -12,7 +12,6 @@ public final class BruteForce {
 
         for (int i = 1; i <= Alphabet.STR_CRYP.length(); i++) {
             torturedStr = Caesar.decrypt(line, i);
-            //System.out.println(torturedStr);
 
             if(bruteForceLogic(torturedStr)) break;
         }
@@ -23,7 +22,7 @@ public final class BruteForce {
         String[] splitStr = decryptedLine.trim().split("\\s+");
 
         for (String word:splitStr) {
-            if (word.length() > 15) return false;
+            if (word.length() > 17) return false;
             else if (PATTERN_SYM.matcher(word.substring(0, word.length()-1)).find()) return false;
             else if (PATTERN_4_CONSONANTS.matcher(word).find())  return false;
             else if (PATTERN_3_VOWELS.matcher(word).find())  return false;
@@ -32,8 +31,8 @@ public final class BruteForce {
         return true;
     }
 
-    public static void main(String[] args) {
-        String word = ",:ъуц!рьъ:ъээрърцф.:о";
-        System.out.println(bruteForceDecrypt(word));
-    }
+//    public static void main(String[] args) {
+//        String word = ",:ъуц!рьъ:ъээрърцф.:о";
+//        System.out.println(bruteForceDecrypt(word));
+//    }
 }
