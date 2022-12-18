@@ -30,9 +30,4 @@ public final class BruteForce {
         }
         return true;
     }
-
-//    public static void main(String[] args) {
-//        String word = ",:ъуц!рьъ:ъээрърцф.:о";
-//        System.out.println(bruteForceDecrypt(word));
-//    }
 }
