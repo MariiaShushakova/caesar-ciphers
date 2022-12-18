@@ -9,7 +9,7 @@ Java 17
    2. 2 - "encryption/decryption" requires typing string directory to file with normal (not encrypted text). Project has already contained such a file - `text.txt` OR you can create your own and type absolute path to it. Then you should type directory for new file and shift key. In the result file you will find encrypted and decrypted line.
    3. 0 - exit from application
 
-Note: application works only with russian words.
+**Note:** application works only with russian words.
 
 ## Обязательные требования
 У программы должно быть 2 режима:
