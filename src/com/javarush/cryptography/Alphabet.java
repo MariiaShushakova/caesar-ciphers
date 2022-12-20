@@ -1,4 +1,4 @@
-package com.javarush;
+package com.javarush.cryptography;
 
 public class Alphabet {
 

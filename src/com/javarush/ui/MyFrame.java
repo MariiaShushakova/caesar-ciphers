@@ -1,6 +1,6 @@
 package com.javarush.ui;
 
-import com.javarush.Caesar;
+import com.javarush.cryptography.Caesar;
 
 import javax.swing.*;
 import java.awt.*;

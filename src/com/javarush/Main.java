@@ -1,5 +1,9 @@
 package com.javarush;
 
+import com.javarush.cryptography.BruteForce;
+import com.javarush.cryptography.Caesar;
+import com.javarush.cryptography.IncorrectModeException;
+
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;

@@ -1,6 +1,6 @@
-package com.javarush;
+package com.javarush.cryptography;
 
-import static com.javarush.Alphabet.STR_CRYP;
+import static com.javarush.cryptography.Alphabet.STR_CRYP;
 
 public final class Caesar {
 
