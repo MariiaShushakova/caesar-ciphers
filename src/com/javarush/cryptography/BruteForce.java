@@ -23,11 +23,12 @@ public final class BruteForce {
 
         for (String word:splitStr) {
             if (word.length() > 17) return false;
+            else if (word.startsWith(Alphabet.STR_SYMBOLS)) return false;
             else if (PATTERN_SYM.matcher(word.substring(0, word.length()-1)).find()) return false;
             else if (PATTERN_4_CONSONANTS.matcher(word).find())  return false;
             else if (PATTERN_3_VOWELS.matcher(word).find())  return false;
-            else break;
         }
         return true;
     }
+
 }

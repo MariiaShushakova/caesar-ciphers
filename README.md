@@ -7,9 +7,10 @@ Java 17
 ###Console:
 1. Main.java - run
 2. Choose mode: 
-   1. 1 - "brute force" requires typing decrypted message. For example:   `,:ъуц!рьъ:ъээрърцф.:о)`
-   2. 2 - "encryption/decryption" requires typing string directory to file with normal (not encrypted text). Project has already contained such a file - `text.txt` OR you can create your own and type absolute path to it. Then you should type directory for new file and shift key. In the result file you will find encrypted and decrypted line.
-   3. 0 - exit from application
+   1. 1 - "Encryption mode" requires to type the path to the file with normal (not encrypted) text. Project has already contained such a file - `text.txt` OR you can create your own and type absolute path to it. Then you should type path to result file and shift key. In the result file you will find encrypted line.
+   2. 2 - "Decryption mode" requires to type the path to the file with encrypted text. Project has already contained such a file - `text2.txt` OR you can create your own and type absolute path to it. Then you should type directory for result file and shift key. In the result file you will find decrypted line.
+   3. 3 - "brute force" requires  the path to the file with encrypted text. Project has already contained such a file - `text2.txt` OR you can create your own and type absolute path to it. Then you should type directory for result file and shift key. In the result file you will find decrypted line.
+   4. 0 - exit from application
 
 ###GUI:
 1. Gui.java  - run
